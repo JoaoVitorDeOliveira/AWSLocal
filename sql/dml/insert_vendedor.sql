@@ -1,0 +1,25 @@
+
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('EDUARDO SANTOS','M','ESANTOS.MANAGER@TERA.COM',NULL);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('RENATA MONTEIRO','F','RMONT@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('JOAO NUNES','M','JNUNES@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('CLARA MAFRA','F','CMAFRA@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('GERALDO FRANCISCO','M','GFRANCISCO@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('RODRIGO BIO','M','RBIO@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('SERGIO AGUDO','M','SAGUDO@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('PILAR SANCHES','F','PSANCHES@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('MARCELO WITEMBERG','M','MWITEMBERG@TERA.COM',1);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('LILIAN SALINAS','F','LSALINAS@TERA.COM',NULL);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('RAFAELA LIMA','F','RLIMA@TERA.COM',9);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('CELIA TAVARES','F','CTAVARES@TERA.COM',9);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('HERMES MACEDO','M','HMACEDO@TERA.COM',9);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('SILVIO BAHIANA','M','SBAHIANA@TERA.COM',9);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('DEBORA ALMEIDA','F','DALMEIDA@TERA.COM',9);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('DAVID BORGES','M','DBORGES@TERA.COM',NULL);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('TERESA CRISTINA','F','TCRISTINA@TERA.COM',15);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('RODRIGO MARQUES','M','EMACHADO@TERA.COM',16);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('CARLOS SENRA','M','CSENRA@TERA.COM',16);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('FABIO AUGUSTO','M','FAUGUSTO@TERA.COM',16);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('WALLACE MOREIRA','M','WMOREIRA@TERA.COM',16);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('RENE CHIARI','M','RCHIARI@TERA.COM',16);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('ANTONIO JESUS','M','AJESUS@TERA.COM',16);
+INSERT INTO relacional.VENDEDOR(nome, sexo, email, id_gerente) VALUES('PEDRO NUNES','M','PNUNES@TERA.COM',16);
