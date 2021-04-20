@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
+    image: localstack/localstack
+    networks:
+      default:
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+      #- "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+    environment:
+      - SERVICES=${SERVICES- }
+      - DEBUG=${DEBUG- }
+      - DATA_DIR=${DATA_DIR- }
+      #- PORT_WEB_UI=${PORT_WEB_UI- }
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
+      - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - HOST_TMP_FOLDER=${TMPDIR}
+    volumes:
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+  nifi:
+    container_name: nifi
+    image: apache/nifi:latest
+    ports:
+      # HTTP
+      - 8080:8080/tcp
+      # HTTPS
+      - 8443:8443/tcp
+      # Remote Input Socket
+      - 10000:10000/tcp
+      # JVM Debugger
+      - 8000:8000/tcp
+      # Cluster Node Protocol
+      #- 11443:11443/tcp
+    volumes:
+      - ./conf:/opt/conf
+      - ./nifi_state:/data/nifi/state 
+    networks:
+      default:
+
+networks:
+  default:
+    external:
+      name: "localstack"
