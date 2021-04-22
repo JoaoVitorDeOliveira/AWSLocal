@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   localstack:
-    container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
+    container_name: "aws-localstack"
     image: localstack/localstack
     networks:
       - aws-local
@@ -36,12 +36,15 @@ services:
       - 8000:8000/tcp
       # Cluster Node Protocol
       #- 11443:11443/tcp
+    environment:
+      - NIFI_HOME=/home/nifi
+      - NIFI_LOG_DIR=/home/nifi/logs
     volumes:
-      - ./home/joao/volumes-containers/nifi/conf:/opt/conf
-      - ./home/joao/volumes-containers/nifi/nifi_state:/data/nifi/state 
+      - nifi_data:/home/nifi
     networks:
       - aws-local
   db:
+    container_name: db_transacional
     image: postgres
     environment:
       POSTGRES_PASSWORD: "test"
@@ -51,19 +54,39 @@ services:
       - /home/joao/volumes-containers/postgres:/var/lib/postgresql/data 
     networks:
       - aws-local
-      
-  pgadmin:
-    image: dpage/pgadmin4
+  dw:
+    container_name: data_warehouse
+    image: postgres
     environment:
-      PGADMIN_DEFAULT_EMAIL: "test"
-      PGADMIN_DEFAULT_PASSWORD: "test"
+      POSTGRES_PASSWORD: "test"
     ports:
-      - "16543:81"
-    depends_on:
-      - db
+      - "15433:5432"
+    volumes:
+      - /home/joao/volumes-containers/dw:/var/lib/postgresql/data 
     networks:
       - aws-local
-      
+  metabase:
+     container_name: metabase
+     image: metabase/metabase
+     environment:
+       - MB_DB_FILE=/metabase-data/metabase.db    
+     ports:
+       - 3000:3000
+     volumes:
+       - /home/joao/volumes-containers/metabase-data:/metabase-data
+     networks:
+       - aws-local
+  zeppelin:
+     container_name: zeppelin
+     image: apache/zeppelin:0.9.0
+     ports:
+       - 8081:8080
+     networks:
+       - aws-local       
+volumes:
+  nifi_data:
+    external: true
+         
 networks:
   aws-local:
     driver: bridge
